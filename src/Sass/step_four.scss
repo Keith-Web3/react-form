@@ -1,0 +1,58 @@
+@use 'variables' as v;
+
+.step-four {
+  .service-container {
+    background-color: v.$Alabaster;
+    padding: v.$spacer;
+
+    p {
+      margin: 0;
+      @include v.getFont(regular, 1.1);
+    }
+    .header {
+      display: grid;
+      grid-template: repeat(2, auto) / repeat(2, auto);
+      grid-template-areas: 'plan price' 'change price';
+      align-items: center;
+      border-bottom: 1px solid mix(v.$Alabaster, v.$Cool-gray, 60%);
+      padding-bottom: v.$spacer * 0.5;
+      margin-bottom: v.$spacer * 0.5;
+
+      .plan {
+        grid-area: plan;
+        @include v.getFont('medium', 1.1);
+        color: v.$Marine-blue;
+      }
+      .price {
+        grid-area: price;
+        text-align: end;
+        @include v.getFont('medium', 1.1);
+        color: v.$Marine-blue;
+      }
+      .change {
+        grid-area: change;
+        text-decoration: 2px solid underline;
+        cursor: pointer;
+      }
+    }
+    .service {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      line-height: 2;
+
+      &__price {
+        color: v.$Marine-blue;
+      }
+    }
+  }
+  .total {
+    padding-inline: v.$spacer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &__price {
+      color: v.$Purplih-blue;
+    }
+  }
+}

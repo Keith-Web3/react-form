@@ -1,0 +1,32 @@
+$fonts: (
+  'regular': 'Ubuntu-regular',
+  'medium': 'Ubuntu-medium',
+  'bold': 'Ubuntu-bold',
+);
+@mixin getFont($family, $size: 1) {
+  font-family: map-get($fonts, $family);
+  font-size: #{$size}rem;
+}
+@font-face {
+  font-family: 'Ubuntu-bold';
+  src: url(../assets/fonts/Ubuntu-Bold.ttf);
+}
+@font-face {
+  font-family: 'Ubuntu-medium';
+  src: url(../assets/fonts/Ubuntu-Medium.ttf);
+}
+@font-face {
+  font-family: 'Ubuntu-regular';
+  src: url(../assets/fonts/Ubuntu-Regular.ttf);
+}
+$Marine-blue: hsl(213, 96%, 18%);
+$Purplih-blue: hsl(243, 100%, 62%);
+$Pastel-blue: hsl(228, 100%, 84%);
+$Light-blue: hsl(206, 94%, 87%);
+$Strawberry-red: hsl(354, 84%, 57%);
+$Cool-gray: hsl(231, 11%, 63%);
+$Light-gray: hsl(229, 24%, 87%);
+$Magnolia: hsl(217, 100%, 97%);
+$Alabaster: hsl(231, 100%, 99%);
+$White: hsl(0, 0%, 100%);
+$spacer: 1em;

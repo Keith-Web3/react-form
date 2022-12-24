@@ -1,0 +1,25 @@
+@use 'variables' as v;
+
+.step-one {
+  label {
+    display: block;
+    color: v.$Marine-blue;
+    margin-bottom: v.$spacer * 0.8;
+    @include v.getFont('medium', 1.05);
+
+    input {
+      appearance: none;
+      display: block;
+      border: 1px solid v.$Light-gray;
+      outline: none;
+      border-radius: 5px;
+      width: 100%;
+      padding: v.$spacer * 0.4 v.$spacer * 0.5;
+
+      &::placeholder {
+        color: lighten(v.$Cool-gray, 3%);
+        @include v.getFont('medium', 1.1);
+      }
+    }
+  }
+}

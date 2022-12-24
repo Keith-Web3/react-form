@@ -1,0 +1,72 @@
+@use 'resets' as resets;
+@use 'variables' as v;
+
+header {
+  background-image: url(../assets/bg-sidebar-mobile.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom center;
+  display: grid;
+  place-content: center;
+  padding: v.$spacer * 3 v.$spacer * 4 v.$spacer * 6;
+  grid-area: header;
+  @include v.getFont('medium');
+  @media (min-width: 700px) {
+    place-content: unset;
+    padding-inline: v.$spacer * 2 v.$spacer * 7;
+    border-radius: 5px;
+  }
+
+  ul {
+    display: grid;
+    gap: v.$spacer;
+    align-items: center;
+    justify-content: space-between;
+    grid-auto-flow: column;
+    @media (min-width: 700px) {
+      grid-auto-flow: row;
+      justify-content: unset;
+      grid-template-rows: repeat(4, max-content);
+    }
+
+    li {
+      list-style-type: none;
+      display: flex;
+      align-items: center;
+      gap: v.$spacer;
+
+      .page {
+        color: v.$Magnolia;
+        border: 2px solid v.$Magnolia;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        place-items: center;
+        display: grid;
+        cursor: pointer;
+      }
+      .steps {
+        display: none;
+        text-transform: uppercase;
+        p:first-child {
+          @include v.getFont(medium, 0.95);
+          color: v.$Pastel-blue;
+        }
+        p:last-child {
+          color: v.$White;
+        }
+        @media (min-width: 700px) {
+          display: block;
+        }
+      }
+
+      &.currPage {
+        .page {
+          background-color: v.$Light-blue;
+          border-color: v.$Light-blue;
+          color: v.$Marine-blue;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+@use 'variables' as v;
+
+.step-five {
+  text-align: center;
+  padding: v.$spacer * 2;
+
+  img {
+    display: block;
+    margin-inline: auto;
+    width: min(22%, 70px);
+  }
+  .header {
+    @include v.getFont(bold, 1.5);
+    color: v.$Marine-blue;
+    margin-block: v.$spacer * 0.25 v.$spacer * 0.4;
+  }
+}

@@ -1,0 +1,101 @@
+@use 'variables' as v;
+
+.step-two {
+  @media (min-width: 700px) {
+    display: grid;
+    grid-template: repeat(4, auto) / repeat(3, 1fr);
+    grid-template-areas: 'header header header' 'subheader subheader subheader' 'plan1 plan2 plan3' 'switch switch switch';
+    width: auto;
+    column-gap: v.$spacer;
+
+    h1 {
+      grid-area: header;
+      font-size: 2rem;
+    }
+    h1 + p {
+      grid-area: subheader;
+      margin: 0;
+    }
+  }
+  .billing-plan {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: v.$spacer;
+    border: 2px solid v.$Light-gray;
+    padding: v.$spacer * 0.8 v.$spacer;
+    border-radius: 8px;
+    margin-bottom: v.$spacer * 0.9;
+    align-items: center;
+    @for $i from 1 through 3 {
+      &:nth-of-type(#{$i}) {
+        grid-area: plan#{$i};
+      }
+    }
+
+    @media (min-width: 700px) {
+      grid-template-rows: auto auto;
+      row-gap: v.$spacer * 2.5;
+      padding: v.$spacer * 1.5 v.$spacer * 4 v.$spacer * 1.5 v.$spacer * 2;
+      grid-template-columns: unset;
+    }
+    &.active {
+      border: 2px solid rgb(darken(v.$Purplih-blue, 25%), 0.5);
+      background-color: v.$Magnolia;
+    }
+    h2 {
+      @include v.getFont('medium', 1.1);
+      font-weight: 500;
+      color: v.$Marine-blue;
+    }
+    p {
+      margin: 0;
+      @include v.getFont('regular', 1.05);
+    }
+    .promo {
+      @include v.getFont('medium', 0.95);
+      color: v.$Marine-blue;
+    }
+  }
+  .switch {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: v.$spacer * 1.3;
+    grid-area: switch;
+
+    @media (min-width: 700px) {
+      background-color: v.$Magnolia;
+      border-radius: 5px;
+      gap: v.$spacer * 1.8;
+    }
+    p {
+      @include v.getFont('medium', 1.1);
+      color: v.$Marine-blue;
+      margin: 0;
+    }
+    div {
+      height: 1.3rem;
+      width: 38px;
+      border-radius: 100vw;
+      background-color: v.$Marine-blue;
+      position: relative;
+
+      &.yearly {
+        &::after {
+          inset: 0 0 0 auto;
+          transition: inset 200ms linear;
+        }
+      }
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 0 auto 0 0;
+        transition: inset 200ms linear;
+        margin: 0.25rem;
+        aspect-ratio: 1 / 1;
+        border-radius: 50%;
+        background-color: v.$White;
+      }
+    }
+  }
+}

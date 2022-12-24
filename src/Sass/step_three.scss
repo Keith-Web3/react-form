@@ -1,0 +1,45 @@
+@use 'variables' as v;
+
+.step-three {
+  .add-on {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    border: 2px solid v.$Light-gray;
+    padding: v.$spacer * 0.75 v.$spacer;
+    column-gap: v.$spacer;
+    margin-bottom: v.$spacer * 0.8;
+    border-radius: 8px;
+    &:has(input:checked) {
+      transition: border 200ms linear, background-color 200ms linear;
+      border: 2px solid rgb(darken(v.$Purplih-blue, 25%), 0.5);
+      background-color: v.$Magnolia;
+    }
+
+    input {
+      width: 19px;
+      aspect-ratio: 1 / 1;
+      outline: none;
+      display: block;
+      cursor: pointer;
+      border: 2px solid v.$Light-gray;
+    }
+    p {
+      margin: 0;
+    }
+    div {
+      h2 {
+        @include v.getFont('medium', 1.1);
+        font-weight: 500;
+        color: v.$Marine-blue;
+      }
+      .service {
+        @include v.getFont('regular', 0.95);
+      }
+    }
+    .price {
+      @include v.getFont('regular', 0.95);
+      color: darken(v.$Purplih-blue, 5%);
+    }
+  }
+}

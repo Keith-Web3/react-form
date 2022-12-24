@@ -1,0 +1,85 @@
+@use 'resets';
+@use 'variables' as v;
+
+body {
+  font-family: 'Ubuntu', 'Nunito';
+  background-color: v.$Magnolia;
+  position: relative;
+  padding-bottom: v.$spacer * 7;
+  @media (min-width: 700px) {
+    padding: v.$spacer;
+    background-color: v.$White;
+  }
+}
+#root {
+  @media (min-width: 700px) {
+    display: grid;
+    grid-template: repeat(2, auto) / minmax(auto, 300px) 1fr;
+    grid-template-areas: 'header form' 'header button';
+    min-height: 100vh;
+  }
+}
+main {
+  width: min(90%, 380px);
+  margin-inline: auto;
+  background-color: v.$White;
+  padding: v.$spacer * 0.5 v.$spacer v.$spacer;
+  transform: translateY(-75px);
+  border-radius: 10px;
+  grid-area: form;
+  @media (min-width: 700px) {
+    transform: translateY(0);
+    padding-top: v.$spacer * 3;
+  }
+  h1 {
+    color: darken(v.$Marine-blue, 3%);
+    @include v.getFont('bold', 1.7);
+  }
+  p {
+    color: lighten(v.$Cool-gray, 3%);
+    @include v.getFont('medium', 1.05);
+    margin-block: v.$spacer * 0.3 v.$spacer;
+  }
+}
+
+.btn-container {
+  position: fixed;
+  inset: auto 0 0 0;
+  background-color: v.$White;
+  padding: v.$spacer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  grid-area: button;
+  height: max-content;
+  width: min(90%, 380px);
+
+  @media (min-width: 700px) {
+    position: static;
+    margin-top: auto;
+    margin-inline: auto;
+  }
+  button {
+    appearance: none;
+    border: none;
+    outline: none;
+    display: block;
+    cursor: pointer;
+    @include v.getFont('medium', 1.1);
+
+    &.back-btn {
+      background-color: transparent;
+      color: v.$Cool-gray;
+    }
+    &.next-btn {
+      background-color: v.$Marine-blue;
+      color: v.$White;
+      border-radius: 5px;
+      padding: v.$spacer * 0.65 v.$spacer * 1.45;
+      margin-left: auto;
+      &.confirm-btn {
+        background-color: v.$Purplih-blue;
+      }
+    }
+  }
+}
