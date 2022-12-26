@@ -14,6 +14,7 @@ header {
   @media (min-width: 700px) {
     place-content: unset;
     padding-inline: v.$spacer * 2 v.$spacer * 7;
+    border-radius: 5px;
   }
 
   ul {
