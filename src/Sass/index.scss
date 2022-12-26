@@ -7,16 +7,21 @@ body {
   position: relative;
   padding-bottom: v.$spacer * 7;
   @media (min-width: 700px) {
+    display: grid;
+    place-items: center;
     padding: v.$spacer;
-    background-color: v.$White;
   }
 }
 #root {
+  width: max-content;
+  min-width: 800px;
   @media (min-width: 700px) {
     display: grid;
     grid-template: repeat(2, auto) / minmax(auto, 300px) 1fr;
     grid-template-areas: 'header form' 'header button';
-    min-height: 100vh;
+    background-color: v.$White;
+    border-radius: 5px;
+    overflow: hidden;
   }
 }
 main {
