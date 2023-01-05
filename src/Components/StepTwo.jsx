@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 import BillingPlan from './resuables/BillingPlan'
 import { nanoid } from 'nanoid'
 import '../Sass/step_two.scss'
+import arcade from '../assets/icon-arcade.svg'
+import advanced from '../assets/icon-advanced.svg'
+import pro from '../assets/icon-pro.svg'
 
 export default function StepTwo({
   selectedPlan,
@@ -10,17 +13,17 @@ export default function StepTwo({
   updateBillingChoice,
 }) {
   class BillingInfo {
-    constructor(img, price) {
-      this.img = `../src/assets/icon-${img}.svg`
-      this.header = img[0].toUpperCase() + img.slice(1)
+    constructor(img, price, name) {
+      this.img = img
+      this.header = name[0].toUpperCase() + name.slice(1)
       this.price = [`$${price}/mo`, `$${price * 10}/yr`]
       this.promo = '2 months free'
     }
   }
   const billingInfo = [
-    new BillingInfo('arcade', 9),
-    new BillingInfo('advanced', 12),
-    new BillingInfo('Pro', 15),
+    new BillingInfo(arcade, 9, 'arcade'),
+    new BillingInfo(advanced, 12, 'advanced'),
+    new BillingInfo(pro, 15, 'pro'),
   ]
 
   return (
