@@ -63,12 +63,12 @@ form {
   justify-content: space-between;
   grid-area: button;
   height: max-content;
-  width: min(90%, 380px);
 
   @media (min-width: 700px) {
     position: static;
     margin-top: auto;
     margin-inline: auto;
+    width: min(90%, 380px);
   }
   button {
     appearance: none;
