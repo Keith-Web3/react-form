@@ -64,7 +64,7 @@ function App() {
   }
   return (
     <Suspense fallback={<p>Loading...</p>}>
-      <HeroSection currPage={currPage} handleClick={updateCurrPage} />
+      <HeroSection currPage={currPage} />
       {currPage === 1 && (
         <StepOne handleInput={handleInput} formData={formData} />
       )}

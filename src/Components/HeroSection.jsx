@@ -17,7 +17,6 @@ export default function HeroSection({ currPage, handleClick }) {
             pageNumber={page}
             key={nanoid()}
             currPage={currPage}
-            handleClick={handleClick}
             title={title}
           />
         ))}
