@@ -1,11 +1,12 @@
-import { useState } from 'react'
-import HeroSection from './Components/HeroSection'
-import StepOne from './Components/StepOne'
-import StepTwo from './Components/StepTwo'
-import StepThree from './Components/StepThree'
-import StepFour from './Components/StepFour'
-import StepFive from './Components/StepFive'
+import React, { useState, Suspense } from 'react'
 import './Sass/index.scss'
+
+const HeroSection = React.lazy(() => import('./Components/HeroSection'))
+const StepOne = React.lazy(() => import('./Components/StepOne'))
+const StepTwo = React.lazy(() => import('./Components/StepTwo'))
+const StepThree = React.lazy(() => import('./Components/StepThree'))
+const StepFour = React.lazy(() => import('./Components/StepFour'))
+const StepFive = React.lazy(() => import('./Components/StepFive'))
 
 function App() {
   const [currPage, setCurrPage] = useState(() => 1)
@@ -62,7 +63,7 @@ function App() {
       })
   }
   return (
-    <>
+    <Suspense fallback={<p>Loading...</p>}>
       <HeroSection currPage={currPage} handleClick={updateCurrPage} />
       {currPage === 1 && (
         <StepOne handleInput={handleInput} formData={formData} />
@@ -110,7 +111,7 @@ function App() {
           </button>
         </div>
       )}
-    </>
+    </Suspense>
   )
 }
 
