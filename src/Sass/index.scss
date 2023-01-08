@@ -29,7 +29,8 @@ body {
     }
   }
 }
-main {
+main,
+form {
   width: min(90%, 380px);
   margin-inline: auto;
   background-color: v.$White;

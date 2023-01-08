@@ -30,12 +30,12 @@ export default function StepOne({ handleInput, formData }) {
     ),
   ]
   return (
-    <main className="step-one">
+    <form className="step-one">
       <h1>Personal info</h1>
       <p>Please provide your name, email, address and phone number.</p>
       {inputInfo.map((item, idx) => {
         return <InputField key={idx} {...item} handleInput={handleInput} />
       })}
-    </main>
+    </form>
   )
 }

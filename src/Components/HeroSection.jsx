@@ -3,7 +3,7 @@ import '../Sass/hero_section.scss'
 import ListItem from './resuables/ListItem'
 import { nanoid } from 'nanoid'
 
-export default function HeroSection({ currPage, handleClick }) {
+export default function HeroSection({ currPage }) {
   return (
     <header>
       <ul className="step-container">
